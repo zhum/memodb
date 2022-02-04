@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
-module MemoDB
-  VERSION = "0.1.0"
+module Memo
+  ## @param [String] Module version
+  VERSION = '0.1.6'
 end
