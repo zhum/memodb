@@ -21,27 +21,28 @@ Or install it yourself as:
 ## Usage
 
 Example code:
-   require 'memodb'
-   class MyTest
-     extend Memo
-     memo_db('/tmp/my_cache.db')  # path to cache database
-     memo_timeout(10)             # cache timeout = 10 seconds
-     def initialize; @x = 0; end
-     def mymethod
-       @x += 1
-     end
-     def brute_method
-       @x += 1
-     end
-     memoize :mymethod            # cache this method results
-   end
 
-   t = MyTest.new
-   puts t.mymethod    # => 1
-   puts t.mymethod    # => 1
-   MyTest.memo_reset :mymethod
-   puts t.mymethod    # => 2
-   puts t.brute_method # => 3  # not cached
+    require 'memodb'
+    class MyTest
+      extend Memo
+      memo_db('/tmp/my_cache.db')  # path to cache database
+      memo_timeout(10)             # cache timeout = 10 seconds
+      def initialize; @x = 0; end
+      def mymethod
+        @x += 1
+      end
+      def brute_method
+        @x += 1
+      end
+      memoize :mymethod            # cache this method results
+    end
+
+    t = MyTest.new
+    puts t.mymethod    # => 1
+    puts t.mymethod    # => 1
+    MyTest.memo_reset :mymethod
+    puts t.mymethod    # => 2
+    puts t.brute_method # => 3  # not cached
 
 ## Development
 
